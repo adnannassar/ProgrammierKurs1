@@ -1,4 +1,4 @@
-package Students.AmerBathish;
+package Students.Amer.Aufgabe001;
 
 public class Main {
 
