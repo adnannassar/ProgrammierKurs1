@@ -1,4 +1,6 @@
-package Students.Badr;
+package MiedenVerwaltung;
+
+import java.util.Objects;
 
 public class Audio extends Medium {
     private String interpret;
@@ -36,4 +38,17 @@ public class Audio extends Medium {
       return "ID = " + getId() + " \"" + getTitel() + "\"" + " von " + interpret + " aus " + getJahr() + " Spieldauer: " + dauer + " sek.";
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), interpret, dauer);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Audio audio = (Audio) o;
+        return dauer == audio.dauer && interpret.equals(audio.interpret);
+    }
 }
