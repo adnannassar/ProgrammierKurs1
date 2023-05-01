@@ -1,9 +1,11 @@
 package MiedenVerwaltung;
 
+import java.util.Collection;
 import java.util.Objects;
 
 public class Bild extends Medium {
     private String ort;
+
 
     public Bild(String titel, int jahr, String ort) {
         super(titel, jahr);
