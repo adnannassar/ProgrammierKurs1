@@ -1,10 +1,10 @@
 package Students.Badr;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public abstract class Medium {
-    public int x = 10;
     private final int id;
     public static int counter = 0;
     private String titel;
@@ -41,5 +41,20 @@ public abstract class Medium {
     }
 
     public abstract void druckeDaten();
+
+    @Override
+    public int hashCode() {return Objects.hash(this.titel, this.jahr);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null) return false;
+        if (getClass() != o.getClass()) return false;
+        Medium other = (Medium) o;
+        if (!this.titel.equals(other.titel)) return false;
+        if (this.jahr != other.jahr) return false;
+        return true;
+    }
 
 }

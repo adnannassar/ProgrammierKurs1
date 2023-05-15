@@ -9,7 +9,7 @@ public class Main {
 
         int x = 10;
         int y = 20;
-        int z = 30;
+        int z = 0;
         System.out.println("Before: x =  " + x);
         System.out.println("Before: y =  " + y);
 
