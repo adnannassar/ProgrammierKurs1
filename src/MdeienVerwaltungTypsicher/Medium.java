@@ -1,7 +1,6 @@
-package MiedenVerwaltung;
+package MdeienVerwaltungTypsicher;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.Objects;
 
 
@@ -63,12 +62,6 @@ public abstract class Medium implements Comparable<Medium> {
 
     @Override
     public int compareTo(Medium o) {
-        if (this.jahr > o.jahr) {
-            return 1;
-        } else if (this.jahr < o.jahr) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return this.jahr - o.jahr;
     }
 }

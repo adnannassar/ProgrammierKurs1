@@ -1,14 +1,14 @@
-package MiedenVerwaltung;
+package MdeienVerwaltungTypsicher;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
-public class MedienverwaltungTypsicher {
-    private List<Medium> medien;
+public class Medienverwaltung {
+    private LinkedList<Medium> medien;
 
 
-    public MedienverwaltungTypsicher() {
+    public Medienverwaltung() {
         this.medien = new LinkedList<>();
     }
 
@@ -19,7 +19,12 @@ public class MedienverwaltungTypsicher {
     }
 
     public void zeigeMedien() {
-        // Iterator
+        if(medien.isEmpty()){
+            System.out.println("Liste ist leer!");
+        }
+        Collections.sort(medien);
+
+        // Print using Iterator
         Iterator<Medium> it = medien.iterator();
         while (it.hasNext()) {
             it.next().druckeDaten();
