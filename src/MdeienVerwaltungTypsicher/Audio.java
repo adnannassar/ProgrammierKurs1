@@ -1,11 +1,16 @@
 package MdeienVerwaltungTypsicher;
 
+import java.io.*;
 import java.util.Objects;
 
-public class Audio extends Medium {
+public class Audio extends Medium implements Serializable {
     private String interpret;
     private int dauer;
+    private final long serialVersionUID = 2;
 
+    public Audio(){
+
+    }
     public Audio(String titel, String interpret, int jahr, int dauer) {
         super(titel, jahr);
         this.interpret = interpret;
@@ -29,13 +34,16 @@ public class Audio extends Medium {
     }
 
     @Override
-    public void druckeDaten() {
-        System.out.println("ID = " + getId() + " \"" + getTitel() + "\"" + " von " + interpret + " aus " + getJahr() + " Spieldauer: " + dauer + " sek.");
+    public void druckeDaten(OutputStream stream) {
+        PrintStream printStream = new PrintStream(stream);
+        printStream.printf("ID = %d \"%s\" von %s aus %d Spieldauer: %d sek.\n", getId(), getTitel(), interpret, getJahr(), dauer);
+        printStream.flush();
     }
 
+
     @Override
-    public String toString(){
-      return "ID = " + getId() + " \"" + getTitel() + "\"" + " von " + interpret + " aus " + getJahr() + " Spieldauer: " + dauer + " sek.";
+    public String toString() {
+        return "ID = " + getId() + " \"" + getTitel() + "\"" + " von " + interpret + " aus " + getJahr() + " Spieldauer: " + dauer + " sek.";
     }
 
     @Override

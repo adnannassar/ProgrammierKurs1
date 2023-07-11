@@ -11,6 +11,11 @@ public abstract class Medium implements Comparable<Medium> {
     private String titel;
     private int jahr;
 
+
+    public Medium() {
+        this.id = counter++;
+    }
+
     public Medium(String titel, int jahr) {
         this.id = counter++;
         this.titel = titel;

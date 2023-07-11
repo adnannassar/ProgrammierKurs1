@@ -1,4 +1,4 @@
-package MdeienVerwaltungTypsicher;
+package MiedenVerwaltungFX.Fachlogic;
 
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -61,6 +61,8 @@ public abstract class Medium implements Comparable<Medium> , Serializable {
             return false;
         }
     }
+
+
 
     @Override
     public int hashCode() {

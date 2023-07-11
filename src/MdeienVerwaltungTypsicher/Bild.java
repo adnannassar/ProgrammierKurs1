@@ -1,16 +1,22 @@
 package MdeienVerwaltungTypsicher;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Bild extends Medium {
+public class Bild extends Medium implements Serializable {
     private String ort;
-
+    private final long serialVersionUID = 3;
 
     public Bild(String titel, int jahr, String ort) {
         super(titel, jahr);
         this.ort = ort;
     }
 
+    public Bild(){
+
+    }
 
     public String getOrt() {
         return ort;
@@ -21,8 +27,16 @@ public class Bild extends Medium {
     }
 
     @Override
-    public void druckeDaten() {
-        System.out.println("ID = " + getId() + " \"" + getTitel() + "\" " + "aufgenommen im Jahr " + getJahr() + " in " + ort);
+    public void druckeDaten(OutputStream stream) {
+        PrintStream printStream = new PrintStream(stream);
+        printStream.printf("ID = %d \"%s\" aufgenommen im Jahr %d in %s\n", getId(), getTitel(), getJahr(), ort);
+
+        printStream.flush();
+    }
+
+    @Override
+    public String toString() {
+        return "ID = " + getId() + " \"" + getTitel() + "\" " + "aufgenommen im Jahr " + getJahr() + " in " + ort;
     }
 
     @Override
